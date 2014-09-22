@@ -1,0 +1,16 @@
+#!/usr/bin/env fontforge -script
+# http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fmix-mplus-ipa%2F59022%2Fmi
+gu-1m-20130617.zip
+flist = ["migu-1m-regular.ttf", "migu-1m-bold.ttf"]
+i = 0
+while (i < SizeOf(flist))
+  Open(flist[i])
+  Select(0uff5e) # fullwidth tilde
+  Copy()
+  Select(0u301c) # wave dash
+  Paste()
+  Generate(flist[i])
+  Print(flist[i] + " is overwritten.")
+  Close()
+  i += 1
+endloop
